@@ -3,47 +3,51 @@ package com.store.web.servlet;
 import com.store.domain.User;
 import com.store.service.UserService;
 import com.store.service.impl.UserServiceImpl;
-import com.store.utils.MyBeanUtils;
 import com.store.web.base.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.beanutils.BeanUtils;
+
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class UserServlet extends BaseServlet {
 
 	/**
-	 * œ‘ æ◊¢≤·“≥√Ê
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * ÁôªÂΩï
 	 * @param request
 	 * @param response
 	 * @return
 	 * @throws ServletException
 	 * @throws IOException
 	 */
-    public String registerUI(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       return "register.jsp";
+    public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String name = request.getParameter("username");
+		//Âà§Êñ≠Áî®Êà∑ÂêçÊòØÂê¶Â≠òÂú®
+		UserService service = new UserServiceImpl();
+		Boolean isExist = false;
+		try {
+			isExist = service.check(name);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(!isExist){
+			response.getWriter().write("login fail");
+		}else{
+			response.sendRedirect(request.getContextPath() + "/store_show.jsp");
+		}
     }
 
-    /**
-     * ◊¢≤·
-     * @param request
-     * @param response
-     * @return
-     * @throws ServletException
-     * @throws IOException
-     * @throws SQLException 
-     */
-    public String regist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-    	//ªÒ»° ˝æ›≤¢∑‚◊∞
-    	User user = new User();
-    	MyBeanUtils.populate(User.class, request.getParameterMap());
-    	//¥¶¿Ì
-    	UserService userService = new UserServiceImpl();
-    	userService.regist(user);
-    	//≥…π¶Ã· æ
-    	request.setAttribute("msg", "◊¢≤·≥…π¶£¨«Îµ«¬º£°");
-    	return "login.jsp";
-    }
 }

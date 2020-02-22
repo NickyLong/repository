@@ -8,7 +8,12 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class BaseServlet extends HttpServlet {
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 9223372036854775807L;
+
+	@Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
             String methodName = req.getParameter("method");

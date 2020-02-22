@@ -6,6 +6,8 @@ import com.store.domain.User;
 
 public interface UserDao {
 
-	public void save(User user) throws SQLException;
+	public int save(User user) throws SQLException;
+
+	public Long check(String name) throws SQLException;
 
 }

@@ -10,9 +10,16 @@ import com.store.service.UserService;
 public class UserServiceImpl implements UserService {
 
 	@Override
-	public void regist(User user) throws SQLException {
+	public boolean regist(User user) throws SQLException {
 		UserDao userDao = new UserDaoImpl();
-		userDao.save(user);
-		
+		int row = userDao.save(user);
+		return row > 0 ? true : false;
+	}
+
+	@Override
+	public Boolean check(String name) throws SQLException {
+		UserDao userDao = new UserDaoImpl();
+		Long num = userDao.check(name);
+		return num > 0 ? true : false;
 	}
 }

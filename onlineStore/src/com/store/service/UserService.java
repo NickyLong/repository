@@ -6,5 +6,7 @@ import com.store.domain.User;
 
 public interface UserService {
 
-	public void regist(User user) throws SQLException;
+	public boolean regist(User user) throws SQLException;
+
+	public Boolean check(String name) throws SQLException;
 }
