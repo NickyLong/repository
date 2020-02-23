@@ -32,7 +32,7 @@ public class UserServlet extends BaseServlet {
 	 * @throws IOException
 	 */
     public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String name = request.getParameter("username");
+    	String name = request.getParameter("name");
 		//判断用户名是否存在
 		UserService service = new UserServiceImpl();
 		Boolean isExist = false;
@@ -46,7 +46,7 @@ public class UserServlet extends BaseServlet {
 		if(!isExist){
 			response.getWriter().write("login fail");
 		}else{
-			response.sendRedirect(request.getContextPath() + "/store_show.jsp");
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
 		}
     }
 

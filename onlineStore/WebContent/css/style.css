@@ -1,0 +1,24 @@
+#table_show{
+    text-align: center;
+}
+
+#table_searchResult{
+    display: none; /**默认不显示**/
+}
+
+img{
+    width: 200px;
+    height: 200px;
+}
+
+#banner{
+	text-align: right;
+}
+
+#searcher{
+	text-align: center;
+}
+
+input{
+	width: 300px;
+}

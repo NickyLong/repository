@@ -45,9 +45,30 @@ public class RegisterServlet extends HttpServlet {
 		user.setUid(CommonsUtils.getUUID());
 		
 		UserService service = new UserServiceImpl();
+		boolean isExist = false;
+		boolean regist = false;
 		boolean isRegisterSuccess = false;
 		try {
-			isRegisterSuccess = service.regist(user);
+			//用户名、密码非空判断
+			String username = user.getName();
+			String password = user.getPsw();
+			if(username == null){
+				request.setAttribute("regist_error" , "用户名不能为空！");
+			}else if(password == null){
+				request.setAttribute("regist_error" , "密码不能为空！");
+			}else{
+				isExist = service.check(username);
+				if(!isExist){
+					request.setAttribute("regist_error" , "用户名已存在！");
+				}
+				//注册
+				regist = service.regist(user);
+				if(regist){
+					isRegisterSuccess = true;
+				}else{
+					request.setAttribute("regist_error" , "注册时数据库异常！");
+				}
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
