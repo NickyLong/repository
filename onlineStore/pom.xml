@@ -35,8 +35,15 @@
             <systemPath>${basedir}/WebContent/WEB-INF/lib/commons-beanutils-1.8.3.jar</systemPath>
         </dependency>
         <dependency>
+            <groupId>org.apache</groupId>
+            <artifactId>org.apache.commons.dbutils</artifactId>
+            <version>1.4</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/WebContent/WEB-INF/lib/commons-dbutils-1.4.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>com.mchange</groupId>
-            <artifactId>com.mchange.v2.c3p0</artifactId>
+            <artifactId>com.mchange.v2.c3p0 </artifactId>
             <version>1.4</version>
             <scope>system</scope>
             <systemPath>${basedir}/WebContent/WEB-INF/lib/c3p0-0.9.1.2.jar</systemPath>
