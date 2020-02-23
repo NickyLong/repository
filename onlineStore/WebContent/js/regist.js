@@ -27,7 +27,7 @@ function check(){
 		alert("密码不能为空！");
 		return false;
 	}
-	if(pw != confirm_psw){
+	if(psw != confirm_psw){
 		alert("两次输入的密码不一致，请重新输入");
 		document.psw.value = "";
 		document.confim_psw.value = "";
