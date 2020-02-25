@@ -49,6 +49,7 @@ public class RegisterServlet extends HttpServlet {
 		boolean regist = false;
 		boolean isRegisterSuccess = false;
 		//git
+		//test2
 		try {
 			//用户名、密码非空判断
 			String username = user.getName();
