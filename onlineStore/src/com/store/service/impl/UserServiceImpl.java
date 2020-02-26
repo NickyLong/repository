@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
 		return row > 0 ? true : false;
 	}
 
+	//测试1
 	@Override
 	public Boolean check(String name) throws SQLException {
 		UserDao userDao = new UserDaoImpl();
