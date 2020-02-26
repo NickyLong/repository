@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
 		return row > 0 ? true : false;
 	}
 
+	//测试jenkins
 	/**
 	 * 检测用户名是否存在
 	 * @param name
