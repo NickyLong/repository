@@ -9,6 +9,12 @@ import com.store.service.UserService;
 
 public class UserServiceImpl implements UserService {
 
+	/**
+	 * 注册
+	 * @param user
+	 * @return
+	 * @throws SQLException
+	 */
 	@Override
 	public boolean regist(User user) throws SQLException {
 		UserDao userDao = new UserDaoImpl();
